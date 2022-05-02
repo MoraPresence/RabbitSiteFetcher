@@ -97,7 +97,4 @@ public class RabbitConfigurationProduser extends Thread {
         }
         pout.println(Thread.currentThread() + "end work");
     }
-
-
-
 }

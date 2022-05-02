@@ -2,13 +2,16 @@ package consumers.Rabbit;
 
 import org.jsoup.nodes.Document;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.concurrent.TimeoutException;
 
+import static consumers.Rabbit.RabbitConfProduserElk.runProduser;
 import static consumers.Rabbit.RabbitConfigurationConsumers.runConsumer;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, TimeoutException {
         System.out.println("Hello, World!");
         System.out.println(Thread.currentThread());
 
@@ -24,6 +27,7 @@ public class Main {
             }
         };
 
+
         threadPoolConsumer.execute(task1);
         threadPoolConsumer.execute(task1);
 
@@ -34,5 +38,7 @@ public class Main {
         }
 
         printer.printNews(docVec);
+
+        runProduser(docVec);//mb make multiThread
     }
 }

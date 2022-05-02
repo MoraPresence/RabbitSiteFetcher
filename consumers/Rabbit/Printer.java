@@ -25,6 +25,8 @@ public class Printer {
                 // pout.println(doc.select("div [class=article__authors__author__name]").get(0).text());
                 pout.println("Header:");
                 pout.println(doc.select("div [class=article__header__title]").get(0).text());
+                pout.println("Authors:");
+                pout.println(doc.select("div [class=article__authors]").get(0).text());
                 pout.println("Text:");
                 pout.println(element.text());
                 pout.println("URL:");
